@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iShop</title>
+</head>
+
+<body>
+    <div id="container"></div>
+
+    <script src="https://unpkg.com/react@15/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+
+    <script src="MyComponent.js"></script>
+    <link rel="stylesheet" type="text/css" href="MyComponent.css" />
+    <script src="ItemsComponent.js"></script>
+    <link rel="stylesheet" type="text/css" href="ItemsComponent.css" />
+
+    <script>
+
+        var columnName = "Наименование товара";
+        var columnPrice = "Цена";
+        var columnRest = "Количество";
+
+        var itemsArr = [
+            { code: 1, name: "bicycle", price: 300, rest: 10 },
+            { code: 2, name: "skateboard", price: 200, rest: 20 },
+            { code: 3, name: "rollers", price: 100, rest: 30 }
+        ];
+
+        ReactDOM.render(
+            React.createElement(MyComponent, { column1: columnName, column2: columnPrice, column3: columnRest, items: itemsArr }),
+            document.getElementById('container')
+
+        );
+
+    </script>
+
+</body>
+
+</html>

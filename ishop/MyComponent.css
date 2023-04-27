@@ -1,0 +1,13 @@
+.MyComponentTable {
+    border: double 2px;
+}
+
+.MyComponentTable .TabTh {
+    border: solid 1px ;
+    
+}
+
+.MyComponentTable .TabTd {
+    border: solid 1px ;
+    
+}
