@@ -23,16 +23,17 @@
 
         var columnName = "Наименование товара";
         var columnPrice = "Цена";
+        var columnImage = "Фото";
         var columnRest = "Количество";
 
         var itemsArr = [
-            { code: 1, name: "bicycle", price: 300, rest: 10 },
-            { code: 2, name: "skateboard", price: 200, rest: 20 },
-            { code: 3, name: "rollers", price: 100, rest: 30 }
+            { code: 1, name: "bicycle", price: 300, rest: 10, image: "https://velox.net.ua/wp-content/uploads/2021/08/crossbike-leader-275-17-black-green1-600x600.jpg" },
+            { code: 2, name: "skateboard", price: 200, rest: 20, image: "https://kitedanmarkm1.b-cdn.net/media/catalog/product/cache/12/image/1000x1000/e4d92e6aceaad517e7b5c12e0dc06587/e/l/element-escapefrom-1.jpg" },
+            { code: 3, name: "rollers", price: 100, rest: 30, image: "https://contents.mediadecathlon.com/p2152455/k$2f67ed178579ce6223b9346f93aa0d59/sq/8738700.jpg?format=auto&f=800x0" }
         ];
 
         ReactDOM.render(
-            React.createElement(MyComponent, { column1: columnName, column2: columnPrice, column3: columnRest, items: itemsArr }),
+            React.createElement(MyComponent, { column1: columnName, column2: columnPrice, column3: columnRest, column4: columnImage, items: itemsArr }),
             document.getElementById('container')
 
         );

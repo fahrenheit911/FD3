@@ -11,6 +11,7 @@ var MyComponent = React.createClass({
                 code: React.PropTypes.number.isRequired,
                 name: React.PropTypes.string.isRequired,
                 price: React.PropTypes.number.isRequired,
+                image: React.PropTypes.string.isRequired,
                 rest: React.PropTypes.number.isRequired,
             })
         )
@@ -19,7 +20,7 @@ var MyComponent = React.createClass({
     render: function () {
 
         var itemsCode = this.props.items.map(v =>
-            React.createElement(ItemsComponent, { key: v.code, name: v.name, price: v.price, rest: v.rest })
+            React.createElement(ItemsComponent, { key: v.code, name: v.name, price: v.price, rest: v.rest, image: v.image, })
         );
 
         return React.DOM.table({ className: 'MyComponentTable' },
@@ -28,8 +29,9 @@ var MyComponent = React.createClass({
                     React.DOM.th({ className: 'TabTh' }, this.props.column1),
                     React.DOM.th({ className: 'TabTh' }, this.props.column2),
                     React.DOM.th({ className: 'TabTh' }, this.props.column3),
+                    React.DOM.th({ className: 'TabTh' }, this.props.column4),
                 ),
-                React.DOM.tr({ className: 'ItemsComponent' }, itemsCode),
+                itemsCode,
             ),
         );
     },
