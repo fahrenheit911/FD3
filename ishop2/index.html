@@ -25,7 +25,8 @@
         var columnPrice = "Price";
         var columnImage = "Image";
         var columnRest = "Qty";
-        var columnControl = "Control"
+        var columnControl = "Control";
+        var bgColor = "red";
 
         var itemsArr = [
             { code: 1, name: "bicycle", price: 300, qty: 10, image: "https://velox.net.ua/wp-content/uploads/2021/08/crossbike-leader-275-17-black-green1-600x600.jpg" },
@@ -34,7 +35,7 @@
         ];
 
         ReactDOM.render(
-            React.createElement(ShopComponent, { column1: columnName, column2: columnPrice, column3: columnRest, column4: columnImage, column5: columnControl, items: itemsArr }),
+            React.createElement(ShopComponent, { column1: columnName, column2: columnPrice, column3: columnRest, column4: columnImage, column5: columnControl, items: itemsArr, bgcolor: bgColor }),
             document.getElementById('container')
 
         );
