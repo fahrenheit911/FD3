@@ -9,7 +9,7 @@ var ItemsComponent = React.createClass({
     image: React.PropTypes.string.isRequired,
     cbchangeBackground: React.PropTypes.func.isRequired,
     cbdeleteItem: React.PropTypes.func.isRequired,
-    color: React.PropTypes.string.isRequired,
+    selectItem: React.PropTypes.number.isRequired,
   },
 
   changeBackground: function (eo) {
@@ -26,7 +26,10 @@ var ItemsComponent = React.createClass({
   render: function () {
     return React.DOM.tr(
       {
-        style: { backgroundColor: this.props.color },
+        style: {
+          backgroundColor:
+            this.props.selectItem === this.props.code ? "red" : "white",
+        },
         className: "TabTr",
         id: this.props.code,
         onClick: this.changeBackground,

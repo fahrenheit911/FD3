@@ -7,7 +7,6 @@ var ShopComponent = React.createClass({
     column3: React.PropTypes.string.isRequired,
     column4: React.PropTypes.string.isRequired,
     column5: React.PropTypes.string.isRequired,
-    bgcolor: React.PropTypes.string.isRequired,
     items: React.PropTypes.arrayOf(
       React.PropTypes.shape({
         code: React.PropTypes.number.isRequired,
@@ -39,34 +38,19 @@ var ShopComponent = React.createClass({
   },
 
   render: function () {
-    if (this.state.selectedItemCode != this.props.code) {
-      var itemsCode = this.props.items.map((v) =>
-        React.createElement(ItemsComponent, {
-          key: v.code,
-          code: v.code,
-          name: v.name,
-          price: v.price,
-          qty: v.qty,
-          image: v.image,
-          cbchangeBackground: this.changeBackground,
-          cbdeleteItem: this.deleteItem,
-          color: this.props.bgcolor,
-        })
-      );
-    } else {
-      itemsCode = this.props.items.map((v) =>
-        React.createElement(ItemsComponent, {
-          key: v.code,
-          code: v.code,
-          name: v.name,
-          price: v.price,
-          qty: v.qty,
-          image: v.image,
-          cbchangeBackground: this.changeBackground,
-          cbdeleteItem: this.deleteItem,
-        })
-      );
-    }
+    var itemsCode = this.props.items.map((v) =>
+      React.createElement(ItemsComponent, {
+        key: v.code,
+        code: v.code,
+        name: v.name,
+        price: v.price,
+        qty: v.qty,
+        image: v.image,
+        cbchangeBackground: this.changeBackground,
+        cbdeleteItem: this.deleteItem,
+        selectItem: this.state.selectedItemCode,
+      })
+    );
 
     return React.DOM.table(
       { className: "ShopComponentTable" },
