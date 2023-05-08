@@ -20,21 +20,21 @@ var ShopComponent = React.createClass({
 
   getInitialState: function () {
     return {
-      selectedItemCode: null,
-      selectedDeleteItemCode: null,
+      selectedItemCode: 0,
+      deleteItemCode: 0,
     };
   },
 
-  changeBackground: function (cd) {
-    console.log("ShopComponent - меня выбрали " + "№ " + cd);
-    this.setState({ selectedItemCode: cd });
+  changeBackground: function (code) {
+    console.log("ShopComponent - меня выбрали " + "№ " + code);
+    this.setState({ selectedItemCode: code });
     console.log(this.state.selectedItemCode);
   },
 
-  deleteItem: function (cd) {
-    console.log("ShopComponent - меня удалили " + "№ " + cd);
-    this.setState({ selectedDeleteItemCode: cd });
-    console.log(this.state.selectedDeleteItemCode);
+  deleteItem: function (code) {
+    console.log("ShopComponent - меня удалили " + "№ " + code);
+    this.setState({ deleteItemCode: code });
+    console.log(this.state.deleteItemCode);
   },
 
   render: function () {
@@ -49,6 +49,7 @@ var ShopComponent = React.createClass({
         cbchangeBackground: this.changeBackground,
         cbdeleteItem: this.deleteItem,
         selectItem: this.state.selectedItemCode,
+        deleteItem: this.state.deleteItemCode,
       })
     );
 

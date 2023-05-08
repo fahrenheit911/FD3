@@ -10,6 +10,7 @@ var ItemsComponent = React.createClass({
     cbchangeBackground: React.PropTypes.func.isRequired,
     cbdeleteItem: React.PropTypes.func.isRequired,
     selectItem: React.PropTypes.number.isRequired,
+    deleteItem: React.PropTypes.number.isRequired,
   },
 
   changeBackground: function (eo) {
@@ -28,7 +29,8 @@ var ItemsComponent = React.createClass({
       {
         style: {
           backgroundColor:
-            this.props.selectItem === this.props.code ? "red" : "white",
+            this.props.selectItem === this.props.code ? "red" : "inherit",
+          display: this.props.deleteItem === this.props.code ? "none" : "visible",
         },
         className: "TabTr",
         id: this.props.code,
@@ -43,16 +45,13 @@ var ItemsComponent = React.createClass({
       ),
       React.DOM.td(
         { className: "TabTd" },
-        React.DOM.div(
-          null,
-          React.DOM.input({
-            type: "button",
-            className: "btn-delete",
-            value: "Delete",
-            id: this.props.code,
-            onClick: this.deleteItem,
-          })
-        )
+        React.DOM.input({
+          type: "button",
+          className: "btn-delete",
+          value: "Delete",
+          id: this.props.code,
+          onClick: this.deleteItem,
+        })
       )
     );
   },
