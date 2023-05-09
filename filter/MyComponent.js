@@ -53,7 +53,7 @@ var MyComponent = React.createClass({
         value: "Сброс",
         onClick: this.resetList,
       }),
-      React.DOM.div({ className: "div" }, this.state.list.join("\n"))
+      React.DOM.div({ className: "List" }, this.state.list.join("\n"))
     );
   },
 });
