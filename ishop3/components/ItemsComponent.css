@@ -1,0 +1,11 @@
+.TabTd img {
+    width: 100px;
+}
+
+.TabTr {
+    cursor: pointer;
+}
+
+.btn-delete {
+    cursor: pointer;
+}

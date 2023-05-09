@@ -1,0 +1,22 @@
+.ShopComponentTable {
+    border: double 2px;
+}
+
+.ShopComponentTable .TabTh {
+    border: solid 1px;
+}
+
+.ShopComponentTable .TabTd {
+    border: solid 1px;
+}.TabTd img {
+    width: 100px;
+}
+
+.TabTr {
+    cursor: pointer;
+}
+
+.btn-delete {
+    cursor: pointer;
+}
+/*# sourceMappingURL=bundle.css.map*/

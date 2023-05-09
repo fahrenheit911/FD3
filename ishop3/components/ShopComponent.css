@@ -1,0 +1,11 @@
+.ShopComponentTable {
+    border: double 2px;
+}
+
+.ShopComponentTable .TabTh {
+    border: solid 1px;
+}
+
+.ShopComponentTable .TabTd {
+    border: solid 1px;
+}
