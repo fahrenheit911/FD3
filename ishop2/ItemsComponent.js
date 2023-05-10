@@ -10,7 +10,6 @@ var ItemsComponent = React.createClass({
     cbchangeBackground: React.PropTypes.func.isRequired,
     cbdeleteItem: React.PropTypes.func.isRequired,
     selectItem: React.PropTypes.number.isRequired,
-    deleteItem: React.PropTypes.number.isRequired,
   },
 
   changeBackground: function (eo) {
@@ -30,7 +29,6 @@ var ItemsComponent = React.createClass({
         style: {
           backgroundColor:
             this.props.selectItem === this.props.code ? "red" : "inherit",
-          display: this.props.deleteItem === this.props.code ? "none" : "visible",
         },
         className: "TabTr",
         id: this.props.code,

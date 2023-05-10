@@ -21,7 +21,7 @@ var ShopComponent = React.createClass({
   getInitialState: function () {
     return {
       selectedItemCode: 0,
-      deleteItemCode: 0,
+      listItems: this.props.items,
     };
   },
 
@@ -33,12 +33,13 @@ var ShopComponent = React.createClass({
 
   deleteItem: function (code) {
     console.log("ShopComponent - меня удалили " + "№ " + code);
-    this.setState({ deleteItemCode: code });
-    console.log(this.state.deleteItemCode);
+    this.setState({
+      listItems: this.state.listItems.filter((v) => v.code !== code),
+    });
   },
 
   render: function () {
-    var itemsCode = this.props.items.map((v) =>
+    var itemsCode = this.state.listItems.map((v) =>
       React.createElement(ItemsComponent, {
         key: v.code,
         code: v.code,
@@ -49,7 +50,6 @@ var ShopComponent = React.createClass({
         cbchangeBackground: this.changeBackground,
         cbdeleteItem: this.deleteItem,
         selectItem: this.state.selectedItemCode,
-        deleteItem: this.state.deleteItemCode,
       })
     );
 
