@@ -14,7 +14,6 @@ class ItemsComponent extends React.Component {
     cbchangeBackground: PropTypes.func.isRequired,
     cbdeleteItem: PropTypes.func.isRequired,
     selectItem: PropTypes.number.isRequired,
-    deleteItem: PropTypes.number.isRequired,
   };
 
   changeBackground = (eo) => {
@@ -34,8 +33,6 @@ class ItemsComponent extends React.Component {
         style: {
           backgroundColor:
             this.props.selectItem === this.props.code ? "red" : "inherit",
-          display:
-            this.props.deleteItem === this.props.code ? "none" : "visible",
         },
         className: "TabTr",
         id: this.props.code,

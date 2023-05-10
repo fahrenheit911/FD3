@@ -26,7 +26,7 @@ class ShopComponent extends React.Component {
 
   state = {
     selectedItemCode: 0,
-    deleteItemCode: 0,
+    listItems: this.props.items,
   };
 
   changeBackground = (code) => {
@@ -37,12 +37,14 @@ class ShopComponent extends React.Component {
 
   deleteItem = (code) => {
     console.log("ShopComponent - меня удалили " + "№ " + code);
-    this.setState({ deleteItemCode: code });
+    this.setState({
+      listItems: list.state.items.filter((v) => v.code !== code),
+    });
     console.log(this.state.deleteItemCode);
   };
 
   render() {
-    let itemsCode = this.props.items.map((v) =>
+    let itemsCode = this.state.items.map((v) =>
       React.createElement(ItemsComponent, {
         key: v.code,
         code: v.code,
@@ -53,7 +55,6 @@ class ShopComponent extends React.Component {
         cbchangeBackground: this.changeBackground,
         cbdeleteItem: this.deleteItem,
         selectItem: this.state.selectedItemCode,
-        deleteItem: this.state.deleteItemCode,
       })
     );
 
