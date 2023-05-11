@@ -30803,15 +30803,18 @@ var ShopComponent = function (_React$Component) {
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ShopComponent.__proto__ || Object.getPrototypeOf(ShopComponent)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
       selectedItemCode: 0,
-      deleteItemCode: 0
+      listItems: _this.props.items
     }, _this.changeBackground = function (code) {
       console.log("ShopComponent - меня выбрали " + "№ " + code);
       _this.setState({ selectedItemCode: code });
       console.log(_this.state.selectedItemCode);
     }, _this.deleteItem = function (code) {
       console.log("ShopComponent - меня удалили " + "№ " + code);
-      _this.setState({ deleteItemCode: code });
-      console.log(_this.state.deleteItemCode);
+      _this.setState({
+        listItems: _this.state.listItems.filter(function (v) {
+          return v.code !== code;
+        })
+      });
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
@@ -30820,7 +30823,7 @@ var ShopComponent = function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      var itemsCode = this.props.items.map(function (v) {
+      var itemsCode = this.state.listItems.map(function (v) {
         return _react2.default.createElement(_ItemsComponent2.default, {
           key: v.code,
           code: v.code,
@@ -30830,8 +30833,7 @@ var ShopComponent = function (_React$Component) {
           image: v.image,
           cbchangeBackground: _this2.changeBackground,
           cbdeleteItem: _this2.deleteItem,
-          selectItem: _this2.state.selectedItemCode,
-          deleteItem: _this2.state.deleteItemCode
+          selectItem: _this2.state.selectedItemCode
         });
       });
 
@@ -31940,8 +31942,7 @@ var ItemsComponent = function (_React$Component) {
     value: function render() {
       return _reactDomFactories2.default.tr({
         style: {
-          backgroundColor: this.props.selectItem === this.props.code ? "red" : "inherit",
-          display: this.props.deleteItem === this.props.code ? "none" : "visible"
+          backgroundColor: this.props.selectItem === this.props.code ? "red" : "inherit"
         },
         className: "TabTr",
         id: this.props.code,
@@ -31967,8 +31968,7 @@ ItemsComponent.propTypes = {
   image: _propTypes2.default.string.isRequired,
   cbchangeBackground: _propTypes2.default.func.isRequired,
   cbdeleteItem: _propTypes2.default.func.isRequired,
-  selectItem: _propTypes2.default.number.isRequired,
-  deleteItem: _propTypes2.default.number.isRequired
+  selectItem: _propTypes2.default.number.isRequired
 };
 exports.default = ItemsComponent;
 

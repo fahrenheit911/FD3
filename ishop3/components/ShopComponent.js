@@ -38,13 +38,12 @@ class ShopComponent extends React.Component {
   deleteItem = (code) => {
     console.log("ShopComponent - меня удалили " + "№ " + code);
     this.setState({
-      listItems: list.state.items.filter((v) => v.code !== code),
+      listItems: this.state.listItems.filter((v) => v.code !== code),
     });
-    console.log(this.state.deleteItemCode);
   };
 
   render() {
-    let itemsCode = this.state.items.map((v) =>
+    let itemsCode = this.state.listItems.map((v) =>
       React.createElement(ItemsComponent, {
         key: v.code,
         code: v.code,
