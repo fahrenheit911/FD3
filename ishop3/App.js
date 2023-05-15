@@ -8,16 +8,16 @@ let columnPrice = "Price";
 let columnImage = "Image";
 let columnRest = "Qty";
 let columnControl = "Control";
-import itemsArr from "./items.json";
+let itemsArr = require("./items.json");
 
 ReactDOM.render(
-  React.createElement(ShopComponent, {
-    column1: columnName,
-    column2: columnPrice,
-    column3: columnRest,
-    column4: columnImage,
-    column5: columnControl,
-    items: itemsArr,
-  }),
+  <ShopComponent
+    column1={columnName}
+    column2={columnPrice}
+    column3={columnRest}
+    column4={columnImage}
+    column5={columnControl}
+    items={itemsArr}
+  />,
   document.getElementById("container")
 );

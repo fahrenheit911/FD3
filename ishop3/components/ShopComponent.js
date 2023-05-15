@@ -43,34 +43,33 @@ class ShopComponent extends React.Component {
   };
 
   render() {
-    let itemsCode = this.state.listItems.map((v) =>
-      React.createElement(ItemsComponent, {
-        key: v.code,
-        code: v.code,
-        name: v.name,
-        price: v.price,
-        qty: v.qty,
-        image: v.image,
-        cbchangeBackground: this.changeBackground,
-        cbdeleteItem: this.deleteItem,
-        selectItem: this.state.selectedItemCode,
-      })
-    );
+    const itemsCode = this.state.listItems.map((v) => (
+      <ItemsComponent
+        key={v.code}
+        code={v.code}
+        name={v.name}
+        price={v.price}
+        qty={v.qty}
+        image={v.image}
+        cbchangeBackground={this.changeBackground}
+        cbdeleteItem={this.deleteItem}
+        selectItem={this.state.selectedItemCode}
+      />
+    ));
 
-    return DOM.table(
-      { className: "ShopComponentTable" },
-      DOM.tbody(
-        { className: "TBody" },
-        DOM.tr(
-          { className: "TabTr" },
-          DOM.th({ className: "TabTh" }, this.props.column1),
-          DOM.th({ className: "TabTh" }, this.props.column2),
-          DOM.th({ className: "TabTh" }, this.props.column3),
-          DOM.th({ className: "TabTh" }, this.props.column4),
-          DOM.th({ className: "TabTh" }, this.props.column5)
-        ),
-        itemsCode
-      )
+    return (
+      <table className="ShopComponentTable">
+        <tbody className="TBody">
+          <tr className="TabTr">
+            <th className="TabTh">{this.props.column1}</th>
+            <th className="TabTh">{this.props.column2}</th>
+            <th className="TabTh">{this.props.column3}</th>
+            <th className="TabTh">{this.props.column4}</th>
+            <th className="TabTh">{this.props.column5}</th>
+          </tr>
+          {itemsCode}
+        </tbody>
+      </table>
     );
   }
 }

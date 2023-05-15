@@ -668,10 +668,6 @@ var _ShopComponent = __webpack_require__(20);
 
 var _ShopComponent2 = _interopRequireDefault(_ShopComponent);
 
-var _items = __webpack_require__(29);
-
-var _items2 = _interopRequireDefault(_items);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var columnName = "Name";
@@ -679,7 +675,7 @@ var columnPrice = "Price";
 var columnImage = "Image";
 var columnRest = "Qty";
 var columnControl = "Control";
-
+var itemsArr = __webpack_require__(29);
 
 _reactDom2.default.render(_react2.default.createElement(_ShopComponent2.default, {
   column1: columnName,
@@ -687,7 +683,7 @@ _reactDom2.default.render(_react2.default.createElement(_ShopComponent2.default,
   column3: columnRest,
   column4: columnImage,
   column5: columnControl,
-  items: _items2.default
+  items: itemsArr
 }), document.getElementById("container"));
 
 /***/ }),
@@ -30837,7 +30833,44 @@ var ShopComponent = function (_React$Component) {
         });
       });
 
-      return _reactDomFactories2.default.table({ className: "ShopComponentTable" }, _reactDomFactories2.default.tbody({ className: "TBody" }, _reactDomFactories2.default.tr({ className: "TabTr" }, _reactDomFactories2.default.th({ className: "TabTh" }, this.props.column1), _reactDomFactories2.default.th({ className: "TabTh" }, this.props.column2), _reactDomFactories2.default.th({ className: "TabTh" }, this.props.column3), _reactDomFactories2.default.th({ className: "TabTh" }, this.props.column4), _reactDomFactories2.default.th({ className: "TabTh" }, this.props.column5)), itemsCode));
+      return _react2.default.createElement(
+        "table",
+        { className: "ShopComponentTable" },
+        _react2.default.createElement(
+          "tbody",
+          { className: "TBody" },
+          _react2.default.createElement(
+            "tr",
+            { className: "TabTr" },
+            _react2.default.createElement(
+              "th",
+              { className: "TabTh" },
+              this.props.column1
+            ),
+            _react2.default.createElement(
+              "th",
+              { className: "TabTh" },
+              this.props.column2
+            ),
+            _react2.default.createElement(
+              "th",
+              { className: "TabTh" },
+              this.props.column3
+            ),
+            _react2.default.createElement(
+              "th",
+              { className: "TabTh" },
+              this.props.column4
+            ),
+            _react2.default.createElement(
+              "th",
+              { className: "TabTh" },
+              this.props.column5
+            )
+          ),
+          itemsCode
+        )
+      );
     }
   }]);
 
@@ -31940,20 +31973,48 @@ var ItemsComponent = function (_React$Component) {
   _createClass(ItemsComponent, [{
     key: "render",
     value: function render() {
-      return _reactDomFactories2.default.tr({
-        style: {
-          backgroundColor: this.props.selectItem === this.props.code ? "red" : "inherit"
+      return _react2.default.createElement(
+        "tr",
+        {
+          className: "TabTr",
+          style: {
+            backgroundColor: this.props.selectItem === this.props.code ? "red" : "inherit"
+          },
+          id: this.props.code,
+          onClick: this.changeBackground
         },
-        className: "TabTr",
-        id: this.props.code,
-        onClick: this.changeBackground
-      }, _reactDomFactories2.default.td({ className: "TabTd" }, this.props.name), _reactDomFactories2.default.td({ className: "TabTd" }, this.props.price), _reactDomFactories2.default.td({ className: "TabTd" }, this.props.qty), _reactDomFactories2.default.td({ className: "TabTd" }, _react2.default.createElement("img", { src: this.props.image })), _reactDomFactories2.default.td({ className: "TabTd" }, _reactDomFactories2.default.input({
-        type: "button",
-        className: "btn-delete",
-        value: "Delete",
-        id: this.props.code,
-        onClick: this.deleteItem
-      })));
+        _react2.default.createElement(
+          "td",
+          { className: "TabTd" },
+          this.props.name
+        ),
+        _react2.default.createElement(
+          "td",
+          { className: "TabTd" },
+          this.props.price
+        ),
+        _react2.default.createElement(
+          "td",
+          { className: "TabTd" },
+          this.props.qty
+        ),
+        _react2.default.createElement(
+          "td",
+          { className: "TabTd" },
+          _react2.default.createElement("img", { src: this.props.image })
+        ),
+        _react2.default.createElement(
+          "td",
+          { className: "TabTd" },
+          _react2.default.createElement("input", {
+            type: "button",
+            className: "btn-delete",
+            value: "Delete",
+            id: this.props.code,
+            onClick: this.deleteItem
+          })
+        )
+      );
     }
   }]);
 

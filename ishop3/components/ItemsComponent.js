@@ -28,33 +28,32 @@ class ItemsComponent extends React.Component {
   };
 
   render() {
-    return DOM.tr(
-      {
-        style: {
+    return (
+      <tr
+        className="TabTr"
+        style={{
           backgroundColor:
             this.props.selectItem === this.props.code ? "red" : "inherit",
-        },
-        className: "TabTr",
-        id: this.props.code,
-        onClick: this.changeBackground,
-      },
-      DOM.td({ className: "TabTd" }, this.props.name),
-      DOM.td({ className: "TabTd" }, this.props.price),
-      DOM.td({ className: "TabTd" }, this.props.qty),
-      DOM.td(
-        { className: "TabTd" },
-        React.createElement("img", { src: this.props.image })
-      ),
-      DOM.td(
-        { className: "TabTd" },
-        DOM.input({
-          type: "button",
-          className: "btn-delete",
-          value: "Delete",
-          id: this.props.code,
-          onClick: this.deleteItem,
-        })
-      )
+        }}
+        id={this.props.code}
+        onClick={this.changeBackground}
+      >
+        <td className="TabTd">{this.props.name}</td>
+        <td className="TabTd">{this.props.price}</td>
+        <td className="TabTd">{this.props.qty}</td>
+        <td className="TabTd">
+          <img src={this.props.image} />
+        </td>
+        <td className="TabTd">
+          <input
+            type="button"
+            className="btn-delete"
+            value="Delete"
+            id={this.props.code}
+            onClick={this.deleteItem}
+          />
+        </td>
+      </tr>
     );
   }
 }
