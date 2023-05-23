@@ -1,4 +1,4 @@
-﻿import React from "react";
+﻿import React, { Fragment } from "react";
 import PropTypes, { element } from "prop-types";
 import DOM from "react-dom-factories";
 
@@ -9,19 +9,20 @@ class RainbowFrame extends React.Component {
     colors: PropTypes.array,
   };
 
-  state = {
-    color: " ",
-  };
-
   render() {
-    const borderStyle = {
-      borderColor: this.state.color,
-      borderWidth: 10,
-      borderStyle: "solid",
-      textAlign: "center",
-    };
+    let content = this.props.children;
 
-    return <div style={borderStyle}>{this.props.children}</div>;
+    for (let color of this.props.colors) {
+      const borderStyle = {
+        borderColor: color,
+        borderWidth: 10,
+        borderStyle: "solid",
+        textAlign: "center",
+      };
+      content = <div style={borderStyle}>{content}</div>;
+    }
+
+    return <Fragment>{content}</Fragment>;
   }
 }
 

@@ -442,11 +442,11 @@ var _RainbowFrame2 = _interopRequireDefault(_RainbowFrame);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var color = "red";
+var colorArr = ["red", "orange", "yellow", "green", "#00BFFF", "blue", "purple"];
 
 _reactDom2.default.render(_react2.default.createElement(
   _RainbowFrame2.default,
-  { color: color },
+  { colors: colorArr },
   "Hello!"
 ), document.getElementById("container"));
 
@@ -30555,15 +30555,47 @@ var RainbowFrame = function (_React$Component) {
   _createClass(RainbowFrame, [{
     key: "render",
     value: function render() {
-      var borderStyle = {
-        borderColor: this.props.color,
-        borderWidth: 10,
-        borderStyle: 'solid'
-      };
+      var content = this.props.children;
+
+      var _iteratorNormalCompletion = true;
+      var _didIteratorError = false;
+      var _iteratorError = undefined;
+
+      try {
+        for (var _iterator = this.props.colors[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+          var color = _step.value;
+
+          /*const borderStyle = {
+            borderColor: color,
+            borderWidth: 10,
+            borderStyle: "solid",
+            textAlign: "center",
+          };*/
+          content = _react2.default.createElement(
+            "div",
+            { style: { border: "2px solid " + color } },
+            content
+          );
+        }
+      } catch (err) {
+        _didIteratorError = true;
+        _iteratorError = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion && _iterator.return) {
+            _iterator.return();
+          }
+        } finally {
+          if (_didIteratorError) {
+            throw _iteratorError;
+          }
+        }
+      }
+
       return _react2.default.createElement(
-        "div",
-        { style: borderStyle },
-        this.props.children
+        _react.Fragment,
+        null,
+        content
       );
     }
   }]);
@@ -30572,7 +30604,7 @@ var RainbowFrame = function (_React$Component) {
 }(_react2.default.Component);
 
 RainbowFrame.propTypes = {
-  color: _propTypes2.default.string
+  colors: _propTypes2.default.array
 };
 exports.default = RainbowFrame;
 
