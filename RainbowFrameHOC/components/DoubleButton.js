@@ -9,7 +9,7 @@ class DoubleButton extends React.Component {
     caption1: PropTypes.string.isRequired,
     caption2: PropTypes.string.isRequired,
     cbPressed: PropTypes.func.isRequired,
-    //color: PropTypes.string.isRequired,
+    colors: PropTypes.array.isRequired,
   };
 
   selectButton = (eo) => {
@@ -19,7 +19,7 @@ class DoubleButton extends React.Component {
 
   render() {
     return (
-      <Fragment>
+      <div className="buttonBlok">
         <input
           type="button"
           className="btn-left"
@@ -35,7 +35,7 @@ class DoubleButton extends React.Component {
           id="2"
           onClick={this.selectButton}
         />
-      </Fragment>
+      </div>
     );
   }
 }
