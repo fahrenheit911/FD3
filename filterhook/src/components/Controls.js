@@ -1,23 +1,23 @@
 import React, { useState } from "react";
 
-const Controls = (props) => {
+export const Controls = (props) => {
   const [filter, setFilter] = useState("");
   const [sort, setSort] = useState(false);
 
   function inputText(eo) {
     setFilter(eo.target.value);
-    props.cbFilterList(filter);
+    props.cbFilterList(eo.target.value);
+  }
+
+  function checkedSort(eo) {
+    setSort(eo.target.checked);
+    props.cbFilterList(eo.target.checked);
   }
 
   function resetText(eo) {
     setFilter("");
     setSort(false);
     props.cbResetList(eo.target.value);
-  }
-
-  function checkedSort(eo) {
-    setSort(eo.target.checked);
-    props.cbSortList(sort);
   }
 
   return (
@@ -28,5 +28,3 @@ const Controls = (props) => {
     </div>
   );
 };
-
-export default Controls;

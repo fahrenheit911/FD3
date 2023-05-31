@@ -1,10 +1,23 @@
 import React from "react";
-import Filter from "../src/components/Filter";
+import { Filter } from "../src/components/Filter";
+
+const listArr = [
+  "california",
+  "everything",
+  "aboveboard",
+  "washington",
+  "basketball",
+  "weathering",
+  "characters",
+  "literature",
+  "contraband",
+  "appreciate",
+];
 
 function App() {
   return (
     <div>
-      <Filter />
+      <Filter list={listArr} />
     </div>
   );
 }

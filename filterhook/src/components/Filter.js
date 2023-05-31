@@ -1,51 +1,30 @@
 import React, { Fragment, useState } from "react";
-import List from "../components/List";
-import Controls from "../components/Controls";
+import { List } from "../components/List";
+import { Controls } from "../components/Controls";
 
-const listArr = [
-  "california",
-  "everything",
-  "aboveboard",
-  "washington",
-  "basketball",
-  "weathering",
-  "characters",
-  "literature",
-  "contraband",
-  "appreciate",
-];
+export const Filter = (props) => {
+  const [list, setList] = useState(props.list);
 
-function Filter() {
-  const [list, setList] = useState(listArr);
+  function filterList(el) {
+    console.log(el);
+    let list = props.list.slice();
 
-  function filterList(text) {
-    let list = listArr.slice();
-    if (text) list = list.filter((v) => v.includes(text));
-    setList(list);
-  }
+    if (el) list = list.filter((v) => v.includes(el));
 
-  function sortList(sort) {
-    let list = listArr.slice();
-    if (sort) list = list.sort();
+    if (el === true) list.sort();
+
     setList(list);
   }
 
   function resetList(reset) {
-    let list = listArr.slice();
+    let list = props.list.slice();
     if (reset) setList(list);
   }
 
   return (
     <Fragment>
-      <Controls
-        list={listArr}
-        cbSortList={sortList}
-        cbFilterList={filterList}
-        cbResetList={resetList}
-      />
+      <Controls cbFilterList={filterList} cbResetList={resetList} />
       <List list={list} />
     </Fragment>
   );
-}
-
-export default Filter;
+};
