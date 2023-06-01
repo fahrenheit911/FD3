@@ -5,18 +5,14 @@ export const Controls = (props) => {
   const [sort, setSort] = useState(false);
 
   useEffect(() => {
-    props.cbFilterList(filter);
-  }, [filter, props]);
+    props.cbFilterList(filter, sort);
+  }, [filter, sort]);
 
-  useEffect(() => {
-    props.cbSortList(sort);
-  }, [sort, props]);
-
-  function resetText(eo) {
+  const resetText = (eo) => {
     setFilter("");
     setSort(false);
     props.cbResetList(eo.target.value);
-  }
+  };
 
   return (
     <>
