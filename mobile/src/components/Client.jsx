@@ -1,49 +1,63 @@
-import React from "react";
+import React, { Fragment } from "react";
+import PropTypes from "prop-types";
 import { mobileEvents } from "./events";
 
-class Client extends React.Component {
-  state = {
-    info: this.props.info,
-    status: "Active",
+class Client extends React.PureComponent {
+  static propTypes = {
+    info: PropTypes.objectOf(
+      PropTypes.shape({
+        code: PropTypes.number.isRequired,
+        fam: PropTypes.string.isRequired,
+        im: PropTypes.string.isRequired,
+        otch: PropTypes.string.isRequired,
+        balance: PropTypes.number.isRequired,
+      })
+    ),
   };
 
-  clickEdit = (eo) => {
-    eo.stopPropagation();
-    mobileEvents.emit("EEditClicked", this.state.info.code);
-    mobileEvents.emit("EE", this.state.info);
+  clickEdit = () => {
+    // emit to App Component
+    mobileEvents.emit("EEditClicked", this.props.info.code);
+    // emit to EditClientData Component
+    mobileEvents.emit(
+      "EEditClientInfo",
+      this.props.info.fam,
+      this.props.info.balance
+    );
   };
 
   clickDelete = (eo) => {
-    eo.stopPropagation();
-    mobileEvents.emit("EDeleteClicked", this.state.info.code);
-    mobileEvents.emit("EE", this.state.info);
-  };
-
-  changeStatus = () => {
-    this.setState({ status: "Blocked" });
+    mobileEvents.emit("EDeleteClicked", this.props.info.code);
   };
 
   render() {
+    console.log("Client render " + this.props.info.code);
     return (
-      <tr className="TabTd">
-        <td>{this.state.info.fam}</td>
-        <td>{this.state.info.im}</td>
-        <td>{this.state.info.otch}</td>
-        <td>{this.state.info.balance}</td>
-        <td
-          style={{
-            backgroundColor: this.state.info.balance < 0 ? "red" : "inherit",
-          }}
-        >
-          {this.state.info.balance < 0 ? "Blocked" : this.state.status}
-        </td>
-        <td>
-          <input type="button" value="Редактировать" onClick={this.clickEdit} />
-        </td>
-        <td>
-          <input type="button" value="Удалить" onClick={this.clickDelete} />
-        </td>
-      </tr>
+      <>
+        <tr className="TabTd">
+          <td>{this.props.info.fam}</td>
+          <td>{this.props.info.im}</td>
+          <td>{this.props.info.otch}</td>
+          <td>{this.props.info.balance}</td>
+          <td
+            style={{
+              backgroundColor: this.props.info.balance >= 0 ? "inherit" : "red",
+            }}
+          >
+            {this.props.info.balance >= 0 ? "Active" : "Blocked"}
+          </td>
+          <td>
+            <input
+              type="button"
+              value="Редактировать"
+              onClick={this.clickEdit}
+            />
+          </td>
+          <td>
+            <input type="button" value="Удалить" onClick={this.clickDelete} />
+          </td>
+        </tr>
+      </>
     );
   }
 }

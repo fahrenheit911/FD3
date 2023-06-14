@@ -3,24 +3,54 @@ import React from "react";
 import { mobileEvents } from "./events";
 import Client from "./Client";
 
-class Company extends React.Component {
+class Company extends React.PureComponent {
   state = {
     list: this.props.clients,
+    clientId: "",
   };
 
   componentDidMount = () => {
     mobileEvents.addListener("EDeleteClicked", this.deleteClient);
+    mobileEvents.addListener("ENewInfo", this.newInfo);
+    mobileEvents.addListener("EEditCode", this.updClientId);
+    mobileEvents.addListener("EShowActive", this.showActive);
   };
 
   componentWillUnmount = () => {
     mobileEvents.removeListener("EDeleteClicked", this.deleteClient);
+    mobileEvents.removeListener("ENewInfo", this.newInfo);
+    mobileEvents.removeListener("EEditCode", this.updClientId);
+    mobileEvents.removeListener("EShowActive", this.showActive);
+  };
+
+  showActive = () => {
+    this.setState({ list: this.state.list.filter((v) => v.balance >= 0) });
+  };
+
+  updClientId = (code) => {
+    this.setState({ clientId: code });
   };
 
   deleteClient = (code) => {
     this.setState({ list: this.state.list.filter((v) => v.code !== code) });
   };
 
+  newInfo = (newFam, newBalance) => {
+    let newClients = [...this.state.list];
+    newClients.forEach((c, i) => {
+      if (c.code === this.state.clientId) {
+        let newClient = { ...c };
+        newClient.fam = newFam;
+        newClient.balance = newBalance;
+        newClients[i] = newClient;
+        //if (c.code === this.state.clientId) c.balance = newBalance;
+      }
+    });
+    this.setState({ list: newClients });
+  };
+
   render() {
+    console.log("Company render");
     const clientsCode = this.state.list.map((client) => (
       <Client key={client.code} info={client} />
     ));

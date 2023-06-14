@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 
 import BlockButtons from "./components/BlockButtons";
 import Company from "./components/Company";
@@ -9,12 +8,14 @@ import { mobileEvents } from "./components/events";
 
 let clientsArr = require("../src/components/clients.json");
 
-class App extends React.Component {
+class App extends React.PureComponent {
   state = {
     mode: 1,
+    clients: clientsArr,
   };
 
   updateEdit = (code) => {
+    mobileEvents.emit("EEditCode", code);
     if (code) this.setState({ mode: 2 });
     if (!code) this.setState({ mode: 1 });
   };
@@ -28,11 +29,12 @@ class App extends React.Component {
   };
 
   render() {
+    console.log("App render");
     return (
       <>
         <BlockButtons />
         <hr />
-        <Company clients={clientsArr} />
+        <Company clients={this.state.clients} />
         <hr />
         <AddClientButton />
         {this.state.mode === 2 && <EditClientsData />}

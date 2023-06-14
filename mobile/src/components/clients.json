@@ -4,31 +4,27 @@
         "fam": "Иванов",
         "im": "Иван",
         "otch": "Иванович",
-        "balance": 200,
-        "status": "Active"
+        "balance": 200
     },
     {
         "code": 2,
         "fam": "Сидоров",
         "im": "Сидор",
         "otch": "Сидорович",
-        "balance": -100,
-        "status": "Active"
+        "balance": -100
     },
     {
         "code": 3,
         "fam": "Петров",
         "im": "Петр",
         "otch": "Петрович",
-        "balance": 180,
-        "status": "Active"
+        "balance": 180
     },
     {
         "code": 4,
         "fam": "Алексеев",
         "im": "Алексей",
         "otch": "Алексеевич",
-        "balance": -200,
-        "status": "Blocked"
+        "balance": -200
     }
 ]
