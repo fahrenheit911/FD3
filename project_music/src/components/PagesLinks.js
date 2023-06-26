@@ -21,7 +21,7 @@ export const PagesLinks = () => {
             ee.emit("eefilterArtists", eo.target.value);
           }}
         />
-        <li>
+        {/* <li>
           <NavLink to="/"  className={getLinkClass}>
             Home
           </NavLink>
@@ -30,14 +30,14 @@ export const PagesLinks = () => {
           <NavLink to="/about" className={getLinkClass}>
             About
           </NavLink>
-        </li>
+        </li> */}
         <li>
-          <NavLink to="/artists" className={getLinkClass}>
+          <NavLink to="/" className={getLinkClass}>
             Artists
           </NavLink>
         </li>
         <li>
-          <NavLink to="/yourplaylist" className={getLinkClass}>
+          <NavLink to="/playlist" className={getLinkClass}>
             Your Playlist
           </NavLink>
         </li>

@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ee } from "./events";
 import "./Albums.scss";
 
-export const Albums = ({ id, album_img, album_nam, album_year }) => {
+export const Albums = ( {id, album_img, album_nam, album_year} ) => {
+
   const [isActive, setIsActive] = useState(false);
 
   const selectAlbum = (eo) => {
     ee.emit("eeSelectAlbum", { id, album_img, album_nam, album_year });
-
     setIsActive(true);
   };
 
@@ -20,7 +20,7 @@ export const Albums = ({ id, album_img, album_nam, album_year }) => {
       </div>
 
       <button onClick={selectAlbum}>
-        {isActive ? "Add album" : "Album added"}
+        {isActive ? "Added" : "Add to playlist"}
       </button>
     </div>
   );
