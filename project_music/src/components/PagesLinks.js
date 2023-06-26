@@ -1,25 +1,47 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React from "react";
+import { ee } from "./events";
+import { NavLink } from "react-router-dom";
 
-import './PagesLinks.css';
+import "./PagesLinks.scss";
 
 export const PagesLinks = () => {
-          
-    function getLinkClass(obj) {
-      let className="PageLink";
-      if ( obj.isActive )
-        className+=" ActivePageLink";
-      return className;
-    }
+  const getLinkClass = (obj) => {
+    let className = "PageLink";
+    if (obj.isActive) className += " ActivePageLink";
+    return className;
+  };
 
-    return (
-      <div>
-        <NavLink to="/" end    className={getLinkClass}>Home</NavLink>
-        <NavLink to="/about" className={getLinkClass}>About</NavLink>
-        <NavLink to="/artists" className={getLinkClass}>Artists</NavLink>
-        <NavLink to="/albums" className={getLinkClass}>Albums</NavLink>
-        <NavLink to="/yourplaylist" className={getLinkClass}>Your Playlist</NavLink>
-      </div>
-    );
-
+  return (
+    <aside>
+      <ul>
+        <input
+          type="text"
+          style={{height:"30px", fontSize:16}}
+          onChange={(eo) => {
+            ee.emit("eefilterArtists", eo.target.value);
+          }}
+        />
+        <li>
+          <NavLink to="/"  className={getLinkClass}>
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/about" className={getLinkClass}>
+            About
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/artists" className={getLinkClass}>
+            Artists
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/yourplaylist" className={getLinkClass}>
+            Your Playlist
+          </NavLink>
+        </li>
+      </ul>
+    </aside>
+  );
 };

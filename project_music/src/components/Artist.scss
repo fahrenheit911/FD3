@@ -1,0 +1,22 @@
+.Artist {
+  overflow: hidden;
+  margin: 0 5px;
+  a {
+    color: black;
+    text-decoration: none;
+  }
+  img {
+    transition: transform 0.5s;
+    width: 200px;
+    height: 200px;
+  }
+  img:hover {
+    transform: scale(1.025);
+  }
+  figure {
+    margin-bottom: 5px;
+  }
+  figcaption {
+    margin-top: 5px;
+  }
+}

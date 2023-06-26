@@ -1,0 +1,22 @@
+.Album {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: solid red 2px;
+  border-radius: 5px;
+  margin: 0 5px 5px 5px;
+  padding: 10px;
+  div:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  img {
+    width: 40px;
+    height: 40px;
+  }
+  button {
+    border: solid;
+    border-radius: 5px;
+    padding: 2px;
+  }
+}

@@ -1,9 +1,8 @@
-import React, { Fragment } from "react";
+import React from "react";
+import "./Page.scss";
 
-export const PageAbout = () => {
-  return (
-    <>
-      <h1>About us</h1>
-    </>
-  );
-};
+export const PageAbout = () => (
+  <div className="Page">
+    <h3>About us</h3>
+  </div>
+);
