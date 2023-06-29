@@ -1,5 +1,6 @@
-import EventEmitter from 'events'
+import EventEmitter from "events";
 
-let ee = new EventEmitter()
+let ee = new EventEmitter();
+ee.setMaxListeners(100);
 
-export {ee}
+export { ee };

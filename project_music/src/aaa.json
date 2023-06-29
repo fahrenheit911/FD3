@@ -1,0 +1,121 @@
+[
+    {
+        "id": 101,
+        "image": "./images/Daft Punk.jpg",
+        "title": "Daft Punk",
+        "genre": "Pop",
+        "albums": [
+            {
+                "id": 201,
+                "album-title": "Fire",
+                "year": 2000
+            },
+            {
+                "id": 202,
+                "album-title": "Love",
+                "year": 2001
+            },
+            {
+                "id": 203,
+                "album-title": "Star",
+                "year": 2002
+            }
+        ]
+    },
+    {
+        "id": 102,
+        "image": "./images/Hans Zimmer.jpg",
+        "title": "Hans Zimmer",
+        "genre": "Jazz",
+        "albums": [
+            {
+                "id": 301,
+                "album-title": "Sun",
+                "year": 2005
+            },
+            {
+                "id": 302,
+                "album-title": "Luna",
+                "year": 2007
+            },
+            {
+                "id": 303,
+                "album-title": "Sea",
+                "year": 2010
+            }
+        ]
+    },
+    {
+        "id": 103,
+        "image": "./images/The Weeknd.jpg",
+        "title": "The Weeknd",
+        "genre": "Pop",
+        "albums": [
+            {
+                "id": 401,
+                "album_img": "./images/Take My Breath (Single Package) - Single.jpg",
+                "album_nam": "Street",
+                "album_year": 2002
+            },
+            {
+                "id": 402,
+                "album_img": "./images/Take My Breath (Single Package) - Single.jpg",                
+                "album_nam": "Run",
+                "album_year": 2002
+            }
+        ]
+    },
+    {
+        "id": 104,
+        "image": "./images/Gorillaz.jpg",
+        "title": "Gorillaz",
+        "genre": "Alternative",
+        "albums": [
+            {
+                "id": 501,
+                "album_nam": "Gorillaz",
+                "album_year": 2001
+            },
+            {
+                "id": 502,
+                "album_nam": "Laika Come Home",
+                "album_year": 2002
+            },
+            {
+                "id": 503,
+                "album_nam": "Daemon Days",
+                "album_year": 2005
+            },
+            {
+                "id": 504,
+                "album_nam": "Plastic Beach (Deluxe Version)",
+                "album_year": 2010
+            },
+            {
+                "id": 505,
+                "album_nam": "The Fall",
+                "album_year": 2010
+            },
+            {
+                "id": 506,
+                "album_nam": "Humanz (Deluxe)",
+                "album_year": 2017
+            },
+            {
+                "id": 507,
+                "album_nam": "The Now Now",
+                "album_year": 2018
+            },
+            {
+                "id": 508,
+                "album_nam": "Song Machine, Season One:Strange Timez (deluxe)",
+                "album_year": 2020
+            },
+            {
+                "id": 509,
+                "album_nam": "Cracker Island (Deluxe)",
+                "album_year": 2023
+            }
+        ]
+    }
+]
