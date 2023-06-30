@@ -17,7 +17,7 @@ export const PagePlaylist = () => {
           {album.nam}&#183;{album.year}
         </div>
 
-        <button>Delete</button>
+        <button >Delete</button>
       </div>
     </div>
   );
