@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import { Albums } from "../components/Albums";
-import { appData } from "../appData";
 import { QueryClient, QueryClientProvider, useQuery } from "react-query";
 import "./Page.scss";
 
@@ -15,14 +14,11 @@ export const PageArtist = () => (
 
 function Example() {
   const params = useParams();
-  const [dataApi, setDataApi] = useState([]);
 
   const { isLoading, error, data } = useQuery("repoData", () =>
-    fetch("https://6498a3a59543ce0f49e2387d.mockapi.io/artists")
-      .then((response) => response.json())
-      .then((json) => {
-        setDataApi(json);
-      })
+    fetch("https://6498a3a59543ce0f49e2387d.mockapi.io/artists").then(
+      (response) => response.json()
+    )
   );
 
   if (isLoading) return <p>Loading...</p>;
@@ -31,25 +27,17 @@ function Example() {
 
   const artistId = parseInt(params.clid);
 
-  const artistData = dataApi.find((c) => c.id === artistId);
+  const artistData = data.find((c) => parseInt(c.id )  === artistId); 
 
-  console.log(artistData);
+  const albumsCode = artistData.albums.map((album) => (
+    <Albums
+      key={album.id}
+      id={album.id}
+      album_img={album.album_img}
+      album_nam={album.album_nam}
+      album_year={album.album_year}
+    />
+  ));
 
-  // const albumsCode = artistData.albums.map((album) => (
-  //   <Albums
-  //     key={album.id}
-  //     id={album.id}
-  //     album_img={album.album_img}
-  //     album_nam={album.album_nam}
-  //     album_year={album.album_year}
-  //   />
-  // ));
-
-  return (
-    <div>
-      <h1>{artistData}</h1>
-    </div>
-  );
-}
-
-//return <div className="Page">{albumsCode}</div>;
+return <div className="Page">{albumsCode}</div>;
+  }

@@ -1,6 +1,5 @@
 import React, { useState, useEffect, Fragment } from "react";
 import axios from "axios";
-import { appData } from "../appData";
 import { Artist } from "../components/Artist";
 import { ee } from "../components/events";
 import styled from "styled-components";
@@ -9,7 +8,6 @@ import "./Page.scss";
 export const PageArtists = () => {
   const [dataApi, setDataApi] = useState([]);
   const [dataDefault, setDataDefault] = useState([]);
-  const [data, setData] = useState(appData.artists);
   const [text, setText] = useState("");
   const [error, setError] = useState("");
 
@@ -27,6 +25,7 @@ export const PageArtists = () => {
           "https://6498a3a59543ce0f49e2387d.mockapi.io/artists"
         );
         setDataApi(data.data);
+        setDataDefault(data.data);
       } catch (e) {
         setError("Error");
       }
@@ -48,13 +47,13 @@ export const PageArtists = () => {
         v.nam.toLowerCase().includes(text.toLowerCase())
       );
     setDataApi(list);
-  }, [dataDefault, text]);
+  }, [text]);
 
   return (
     <div className="Page">
       <StyleContainer>
         {error && <h3>{error}</h3>}
-        {dataApi.length ? (
+        {dataDefault.length ? (
           <>
             {dataApi.map((artist) => (
               <Artist
@@ -74,4 +73,4 @@ export const PageArtists = () => {
     </div>
   );
 };
-//<Artists artists={dataApi} />
+

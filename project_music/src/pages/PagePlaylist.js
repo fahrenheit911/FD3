@@ -1,39 +1,24 @@
-import React, { useState, useEffect } from "react";
-import { createStore } from "redux";
-import { ee } from "../components/events";
+import React from "react";
+import { useSelector } from "react-redux";
 import "./Page.scss";
+import "../components/Albums.scss";
 
 export const PagePlaylist = () => {
-  const [album, setAlbum] = useState([]);
+  console.log("PagePlaylist render");
 
-  const defaultState = {
-    cash: 0,
-  };
+  const album = useSelector((state) => state.albums);
+ 
+  return (
+    <div className="Page">
+      <div className="Album">
+        <img src={album.img} alt={album.nam}></img>
 
-  const reducer = (state = defaultState, aktion) => {
-    switch (aktion.type) {
-      case "ADD_CASH":
+        <div>
+          {album.nam}&#183;{album.year}
+        </div>
 
-      case "GET_CASH":
-
-      default:
-        return state;
-    }
-  };
-
-  // useEffect(() => {
-  //   ee.addListener("eeSelectAlbum", (obj) =>
-  //     setAlbum((prev) => [...prev, obj])
-  //   );
-  //   console.log("подписался")
-
-  //   return () => {
-  //     ee.removeListener("eeSelectAlbum", (obj) =>
-  //       setAlbum((prev) => [...prev, obj])
-  //     );
-  //     console.log("отписался")
-  //   };
-  // }, []);
-
-  return <div className="Page">Playlist</div>;
+        <button>Delete</button>
+      </div>
+    </div>
+  );
 };
