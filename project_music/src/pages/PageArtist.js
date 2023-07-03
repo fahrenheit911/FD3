@@ -12,7 +12,7 @@ export const PageArtist = () => (
   </QueryClientProvider>
 );
 
-function Example() {
+const Example = () => {
   const params = useParams();
 
   const { isLoading, error, data } = useQuery("repoData", () =>
@@ -27,7 +27,7 @@ function Example() {
 
   const artistId = parseInt(params.clid);
 
-  const artistData = data.find((c) => parseInt(c.id )  === artistId); 
+  const artistData = data.find((c) => parseInt(c.id) === artistId);
 
   const albumsCode = artistData.albums.map((album) => (
     <Albums
@@ -39,5 +39,5 @@ function Example() {
     />
   ));
 
-return <div className="Page">{albumsCode}</div>;
-  }
+  return <div className="Page">{albumsCode}</div>;
+};

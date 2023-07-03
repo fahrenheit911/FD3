@@ -2,46 +2,82 @@
     {
         "id": 101,
         "image": "./images/Daft Punk.jpg",
-        "title": "Daft Punk",
-        "genre": "Pop",
+        "nam": "Daft Punk",
+        "genre": "Dance",
         "albums": [
             {
                 "id": 201,
-                "album-title": "Fire",
-                "year": 2000
+                "album_img": "./images/Homework 1997.jpg",
+                "album-title": "Homework",
+                "year": 1997
             },
             {
                 "id": 202,
-                "album-title": "Love",
+                "album_img": "./images/Discovery 2001.jpg",
+                "album-title": "Discovery",
                 "year": 2001
             },
             {
                 "id": 203,
-                "album-title": "Star",
-                "year": 2002
+                "album_img": "./images/Human After All 2005.jpg",
+                "album-title": "Human Afler All",
+                "year": 2005
+            },
+            {
+                "id": 204,
+                "album_img": "./images/TRON 2010.jpg",
+                "album-title": "TRON",
+                "year": 2010
+            },
+            {
+                "id": 205,
+                "album_img": "./images/Random Access Memories 2023.jpg",
+                "album-title": "Random Access Memories",
+                "year": 2023
             }
         ]
     },
     {
         "id": 102,
         "image": "./images/Hans Zimmer.jpg",
-        "title": "Hans Zimmer",
+        "nam": "Hans Zimmer",
         "genre": "Jazz",
         "albums": [
             {
                 "id": 301,
-                "album-title": "Sun",
-                "year": 2005
+                "album_img": "./images/The Lion King 1994.jpg",
+                "album_nam": "The Lion King",
+                "album_year": 1994
             },
             {
                 "id": 302,
-                "album-title": "Luna",
-                "year": 2007
+                "album_img": "./images/Gladiator 2000.jpg",
+                "album_nam": "Gladiator",
+                "album_year": 2000
             },
             {
                 "id": 303,
-                "album-title": "Sea",
-                "year": 2010
+                "album_img": "./images/Kung Fu Panda 2003.jpg",
+                "album_nam": "Kung Fu Panda",
+                "album_year": 2003
+            },
+            {
+                "id": 304,
+                "album_img": "./images/Inception 2010.jpg",
+                "album_nam": "Inception",
+                "album_year": 2010
+            },
+            {
+                "id": 305,
+                "album_img": "./images/Interstellar 2014.jpg",
+                "album_nam": "Interstellar",
+                "album_year": 2014
+            },
+            {
+                "id": 306,
+                "album_img": "./images/The Son.jpg",
+                "album_nam": "The Son",
+                "album_year": 2012
             }
         ]
     },
@@ -53,15 +89,45 @@
         "albums": [
             {
                 "id": 401,
-                "album_img": "./images/Take My Breath (Single Package) - Single.jpg",
-                "album_nam": "Street",
-                "album_year": 2002
+                "album_img": "./images/House of Balloons 2011.jpg",
+                "album_nam": "House of Balloons ",
+                "album_year": 2011
             },
             {
                 "id": 402,
-                "album_img": "./images/Take My Breath (Single Package) - Single.jpg",                
-                "album_nam": "Run",
-                "album_year": 2002
+                "album_img": "./images/Thursday 2011.jpg",
+                "album_nam": "Thursday",
+                "album_year": 2011
+            },
+            {
+                "id": 403,
+                "album_img": "./images/Echoes Of Silence 2011.jpg",
+                "album_nam": "Echoes Of Silence",
+                "album_year": 2011
+            },
+            {
+                "id": 404,
+                "album_img": "./images/Beauty Behind the Madness 2015.jpg",
+                "album_nam": "Beauty Behind the Madness",
+                "album_year": 2015
+            },
+            {
+                "id": 405,
+                "album_img": "./images/Starboy 2016.jpg",
+                "album_nam": "Starboy",
+                "album_year": 2016
+            },
+            {
+                "id": 406,
+                "album_img": "./images/After Hous 2020.jpg",
+                "album_nam": "After Hous",
+                "album_year": 2020
+            },
+            {
+                "id": 407,
+                "album_img": "./images/Dawn FM 2022.jpg",
+                "album_nam": "Dawn FM",
+                "album_year": 2022
             }
         ]
     },

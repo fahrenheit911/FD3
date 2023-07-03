@@ -1,11 +1,9 @@
-import React, { Fragment } from "react";
-import { Provider } from "react-redux";
+import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import { PagesLinks } from "./components/PagesLinks";
 import { PagesRouter } from "./routes/PagesRouter";
 import { Header } from "./components/Header";
 import styled from "styled-components";
-import { store } from "./redux/store";
 
 function App() {
   const Wrapper = styled.section`
@@ -22,10 +20,8 @@ function App() {
         <Header />
         <Wrapper>
           <Container>
-            <Provider store={store}>
-              <PagesLinks />
-              <PagesRouter />
-            </Provider>
+            <PagesLinks />
+            <PagesRouter />
           </Container>
         </Wrapper>
       </>
